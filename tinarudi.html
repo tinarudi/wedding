@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Bentham|Muli|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+
+<title>Tina and Rudi's Wedding</title>
+
+  <style type="text/css">
+    #map {
+        width: 100%;
+        max-width: 450px;
+        height: 250px;
+        margin: 20px auto;
+    }
+
+    .map a {
+      color:#cda758;
+    }
+
+
+  * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: 'Bentham', serif;
+    margin:0px auto;
+/*    background: url("geo.png")
+*/  }
+
+  img {
+    width: 100%;
+    margin: auto;
+    display: block;
+  }
+
+  .img-small img {
+    width: 300px;
+    border-radius: 50%;
+  }
+
+  .img-small {
+    margin-top: 30px;
+    padding:10px;
+    border-radius: 50%;
+    border: 4px solid #f5f1ef;
+    display: inline-block;
+  }
+
+  header li, a, .button, h3{
+      transition: all 0.10s ease-in-out;
+    -webkit-transition: all 0.10s ease-in-out;
+    -moz-transition: all 0.10s ease-in-out;
+    -o-transition: all 0.10s ease-in-out;
+  }
+
+
+  header {
+    width: 100%;
+    top:0px;
+    background:#fff;
+    position: fixed;
+    height: 40px;
+    z-index: 9999;
+    text-align: center;
+    border-bottom: 4px solid #f5f1ef;
+        display: inline-block;
+}
+
+
+.horz-rule {
+  width: 100%;
+  max-width: 960px;
+  display: inline-block;
+  border-bottom: 4px solid #f5f1ef;
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+
+.horz-rule span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url("gem.png") 50% 50%  no-repeat;
+  background-size: 100%;
+  top: 21px;
+  position: relative;
+
+}
+  header li.active {
+    /*border-bottom: 1px solid rgba(0,0,0,.8)*/
+  }
+
+  header ul {
+    margin: auto;
+    display: inline-block;
+    padding: 0px;
+  }
+
+  header li {
+    float: left;
+    padding: 10px 20px 10px 0px;
+    cursor: pointer;
+    list-style-type: none;
+    height:40px;
+  }
+
+  header li h3 {
+    border-left: 1px solid #cecece;
+    padding-left: 20px;
+  }
+
+  header li:first-child h3{
+    border-left:0px;
+  }
+
+  header li.active a {
+    color: rgba(0,0,0,.8);
+  }
+
+   header li a {
+    color:#B2AB9E;
+   }
+
+  a {
+    color:rgba(0,0,0,.8);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color:rgba(0,0,0,.8);
+  }
+
+
+
+
+  #tr {
+    color: #333;
+    width: 100%;
+    margin:0px;
+    font-weight: 200;
+    text-align: center;
+  }
+
+
+
+  #tr .inner {
+    max-width: 960px;
+    width: 100%;
+    margin:10px auto;
+    padding:20px 0px;
+    display: inline-block;
+  }
+
+  #tr .inner.double > div {
+    float: left;
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 80px;
+    color:#cda758;
+    font-weight: 200;
+    margin: 50px 0px 20px
+  }
+
+  h2 {
+    font-size: 40px;
+    color:#cda758;
+    margin:50px 0px 0px 0px;
+    font-weight: 200;
+  }
+
+  h3 {
+    font-family: "Muli", sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: .1em;
+    font-weight: bold;
+    margin:0px;
+  }
+
+  .button h3 {
+    top: 15%;
+    position: relative;
+    line-height: 1.4em;
+    margin: 0px;
+    text-shadow: 0px 0px 10px rgba(93, 67, 0, 0.59);
+  }
+
+  .button.large-button h3 {
+    font-size: 18px;
+    color:#fff;
+    font-weight: 800;
+  }
+
+
+  h4 {
+    font-family: 'Meddon', cursive;
+    margin:0px;
+  }
+
+  p {
+    font-size: 15px;
+    color: rgba(0,0,0,.8);
+    font-family: "Muli", sans-serif;
+    letter-spacing: .02em;
+  }
+  #tr > div {
+    padding-top:10px;
+  }
+
+  .cf:before,
+  .cf:after {
+    content: " ";
+    display: table;
+  }
+
+  .cf:after {
+     clear: both;
+  }
+
+  .button {
+    padding: 20px 10px;
+/*    background: #D5B574;
+*/    background: url("gold3.jpg") 50% 50%;
+    display: inline-block;
+    color: #fff;
+    margin: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    background-size: 140px
+  }
+
+
+  .button:hover {
+    box-shadow: 1px 1px 7px rgba(0,0,0,.2)
+  }
+
+  .button:hover h3 {
+    color:rgba(0,0,0,.7);
+  }
+
+
+  .text-box {
+    padding-left: 30px;
+    text-align: left;
+  }
+
+
+  @media screen and (max-width: 480px){
+    header li {
+      padding:10px 8px 10px 0px;
+    }
+
+    .mobile-gone {
+      display: none;
+    }
+
+    .gm-style > div:first-child {
+      pointer-events: none;
+    }
+
+    header li h3 {
+      padding-left:8px;
+    }
+
+    #tr .inner.double > div {
+      max-width: 300px;
+      width: 100%;
+      float: none;
+      margin: 30px auto 0px;
+
+    }
+
+    #home p {
+      padding:0px 50px;
+    }
+
+    p {
+      margin-bottom: 0px
+    }
+
+
+    h1 {
+      font-size: 50px;
+    }
+
+    .text-box {
+      text-align: center;
+      padding-left: 0px;
+    }
+  }
+
+
+  </style>
+
+<body>
+
+    <header>
+      <ul>
+        <li class="home-nav active"><h3><a href="#home">Tina & Rudi</a></h3></li>
+        <li class="deets-nav"><h3><a href="#deets">Details</a></h3></li>
+        <li class="gift-nav"><h3><a href="#gift"><span class="mobile-gone">Potluck & </span>Gifts</a></h3></li>
+        <li class="rsvp-nav"><h3><a href="#rsvp">RSVP</a></h3></li>
+
+      </ul>
+    </header>
+
+
+  <div id="tr">
+
+    <div id="home" class="section">
+      <div class="inner">
+        <h1>Tina & Rudi's Wedding</h1>
+        <p>We're getting married and would love to have you at our celebration!</p>
+        <div class="img-small"><img src="tinarudismall.jpg"></div>
+      </div>
+
+
+
+    </div>
+
+
+  <div id="deets" class="section">
+    <div class="horz-rule"><span></span></div>
+
+    <div class="inner double">
+
+
+    <div class="map">
+
+      <div id="map"></div>
+      <h3><a href="https://maps.google.com/maps?ll=42.368848,-71.103567&z=15&t=m&hl=en-US&gl=US&mapclient=embed&q=276%20Harvard%20St%20Cambridge%2C%20MA%2002139">See Larger Map</a></h3>
+    </div>
+    <div class="text-box">
+      <h2>August 20th, 2016</h2>
+      <p>4pm in the backyard of 276 Harvard Street</p>
+    </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+    <div id="gift" class="section">
+      <div class="horz-rule"><span></span></div>
+
+      <div class="inner double">
+        <div><p>If you'd like to contribute to the potluck</p><div class="button"><h3>Potluck <br> Signup</h3></div></div>
+        <div><p>If you'd like to give us a small gift</p><div class="button"><h3>Give <br>a Gift</h3></div></div>
+      </div>
+    </div>
+
+
+    <div id="rsvp" class="section">
+      <div class="horz-rule"><span></span></div>
+
+      <div class="inner ">
+        <div><p>Please let us know if you can make it!</p><div class="button large-button"><h3>RSVP</h3></div></div>
+      </div>
+    </div>
+
+</div>
+
+
+<div class="img">
+        <img src="sepia2.jpg">
+      </div>
+
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+  $('header a').click(function(e) {
+    e.preventDefault();
+    var curInx = this.hash;
+    var target = $(curInx);
+    var targetOffset = target.offset().top;
+
+    $("body").animate({scrollTop:targetOffset}, 400, function() {
+      location.hash = curInx;
+    });
+
+  });
+
+
+  $(window).scroll(function() {
+    var sticky = function(index) {
+        $('li').removeClass('active'), $('.' + index + '-nav').addClass('active');
+      };
+    $('.section').each(function(){
+      var cur = $(this);
+      var curTop = cur.offset().top;
+      var curInx = cur.attr("id");
+      var sidebarTop = $('.'+curInx+'-nav').offset().top +60;
+        if (sidebarTop > curTop) {
+          sticky(curInx);
+        }
+    });
+  });
+
+   google.maps.event.addDomListener(window, 'load', init);
+
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 16,
+                    scrollwheel: false,
+
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(42.368848, -71.103567), // New York
+
+                    // How you would like to style the map.
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+                };
+
+                // Get the HTML DOM element that will contain your map
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(42.368848, -71.103567),
+                    map: map,
+                    title: 'Map'
+                });
+            }
+
+
+
+
+
+});
+
+
+</script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHHTBEuN-TaiJqmsIKui98NGh9o0Ya29Q&sensor=false"></script>
+
+
