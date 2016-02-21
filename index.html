@@ -5,7 +5,8 @@
 
   <meta name="viewport" content="width=device-width">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Bentham|Muli|Old+Standard+TT' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Bentham|Lato:400,900|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
 
 
 <title>Tina and Rudi's Wedding</title>
@@ -13,15 +14,26 @@
   <style type="text/css">
     #map {
         width: 100%;
-        max-width: 450px;
-        height: 250px;
+        max-width: 500px;
+        height: 300px;
         margin: 20px auto;
     }
+
+      #map2 {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+        margin: 20px auto;
+      }
 
     .map a {
       color:#cda758;
     }
 
+
+    .map-img img {
+      width: 300px
+    }
 
   * {
     -moz-box-sizing: border-box;
@@ -84,6 +96,12 @@
   margin: auto;
   position: relative;
   text-align: center;
+  padding-top: 20px
+}
+
+.top-rule {
+  border-top: 1px solid #f5f1ef;
+  padding-top: 20px
 }
 
 .horz-rule span {
@@ -181,16 +199,20 @@
   }
 
   h3 {
-    font-family: "Muli", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .1em;
     font-weight: bold;
     margin:0px;
   }
 
+  ul h3 {
+    font-weight: normal;
+  }
+
   .button h3 {
-    top: 15%;
+    top: 25%;
     position: relative;
     line-height: 1.4em;
     margin: 0px;
@@ -198,22 +220,17 @@
   }
 
   .button.large-button h3 {
-    font-size: 18px;
+    font-size: 13px;
     color:#fff;
     font-weight: 800;
-  }
-
-
-  h4 {
-    font-family: 'Meddon', cursive;
-    margin:0px;
   }
 
   p {
     font-size: 15px;
     color: rgba(0,0,0,.8);
-    font-family: "Muli", sans-serif;
+    font-family: "Lato", sans-serif;
     letter-spacing: .02em;
+    font-weight: 300
   }
   #tr > div {
     padding-top:10px;
@@ -231,33 +248,42 @@
 
   .button {
     padding: 20px 10px;
-/*    background: #D5B574;
-*/    background: url("gold3.jpg") 50% 50%;
+    background: url("goldglitter.jpg") top left no-repeat;
     display: inline-block;
     color: #fff;
     margin: 20px;
     border-radius: 50%;
     cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background-size: 140px
+    height: 120px;
+    width: 120px;
+    background-size: 200px;
+    text-align: center;
   }
-
 
   .button:hover {
-    box-shadow: 1px 1px 7px rgba(0,0,0,.2)
+    box-shadow: 1px 1px 7px rgba(0,0,0,.4)
   }
 
-  .button:hover h3 {
-    color:rgba(0,0,0,.7);
-  }
 
 
   .text-box {
-    padding-left: 30px;
-    text-align: left;
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+    width: 100%;
   }
 
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+  }
+
+  .icon.rain {
+    background: url("rain.svg") top left no-repeat;
+    background-size: 100%
+
+  }
 
   @media screen and (max-width: 480px){
     header li {
@@ -312,8 +338,8 @@
       <ul>
         <li class="home-nav active"><h3><a href="#home">Tina & Rudi</a></h3></li>
         <li class="deets-nav"><h3><a href="#deets">Details</a></h3></li>
-        <li class="gift-nav"><h3><a href="#gift"><span class="mobile-gone">Potluck & </span>Gifts</a></h3></li>
-        <li class="rsvp-nav"><h3><a href="#rsvp">RSVP</a></h3></li>
+        <li class="potluck-nav"><h3><a href="#potluck">Potluck</a></h3></li>
+        <li class="trip-nav"><h3><a href="#trip">Trip</a></h3></li>
 
       </ul>
     </header>
@@ -336,42 +362,61 @@
   <div id="deets" class="section">
     <div class="horz-rule"><span></span></div>
 
-    <div class="inner double">
+    <div class="inner">
+      <h2>August 20th, 2016</h2>
+      <p>4pm in the backyard of 276 Harvard Street</p>
 
 
     <div class="map">
-
       <div id="map"></div>
-      <h3><a href="https://maps.google.com/maps?ll=42.368848,-71.103567&z=15&t=m&hl=en-US&gl=US&mapclient=embed&q=276%20Harvard%20St%20Cambridge%2C%20MA%2002139">See Larger Map</a></h3>
-    </div>
-    <div class="text-box">
-      <h2>August 20th, 2016</h2>
-      <p>4pm in the backyard of 276 Harvard Street</p>
-    </div>
-
-
+      <h3><a href="https://maps.google.com/maps?ll=42.368848,-71.103567&z=15&t=m&hl=en-US&gl=US&mapclient=embed&q=276%20Harvard%20St%20Cambridge%2C%20MA%2002139" target="_blank">See Larger Map</a></h3>
     </div>
 
   </div>
 
 
 
+  <div class="inner">
 
-    <div id="gift" class="section">
+    <div class="text-box top-rule">
+      <div class="icon rain"></div>
+      <p>In case of rain, we'll be in Robinson Hall, History Department, Harvard University, 35 Quincy Street</p>
+    </div>
+
+
+
+    <div class="map">
+      <div id="map2"></div>
+      <h3><a href="https://www.google.com/maps/place/Robinson+Hall,+35+Quincy+St,+Cambridge,+MA+02138/@42.3745847,-71.1196921,16z/data=!4m2!3m1!1s0x89e377447689a547:0x68705341e2eb4000" target="_blank">See Larger Map</a></h3>
+   </div>
+
+
+
+  </div>
+
+
+
+
+     <div id="potluck" class="section">
       <div class="horz-rule"><span></span></div>
 
-      <div class="inner double">
-        <div><p>If you'd like to contribute to the potluck</p><div class="button"><h3>Potluck <br> Signup</h3></div></div>
-        <div><p>If you'd like to give us a small gift</p><div class="button"><h3>Give <br>a Gift</h3></div></div>
+      <div class="inner ">
+        <div>
+          <p>Instead of a gift, please contribute food or drink to our potluck.</p>
+          <a href="https://docs.google.com/spreadsheets/d/11D45-IpeByhXqk4QzDTO5VJh6R6VgZd1yfoyVW_DVvM/edit#gid=0" target="_blank"><div class="button large-button"><h3>Potluck<br>Signup</h3></div></a>
+        </div>
       </div>
     </div>
 
 
-    <div id="rsvp" class="section">
+    <div id="trip" class="section">
       <div class="horz-rule"><span></span></div>
 
       <div class="inner ">
-        <div><p>Please let us know if you can make it!</p><div class="button large-button"><h3>RSVP</h3></div></div>
+        <div>
+          <p>If you'd like, you can make a small contribution toward our honeymoon trip!</p>
+          <a href="http://rudiandtina.zankyou.com/us/wedding-list?_ga=1.122901581.777571684.1455920837" target="_blank"><div class="button large-button"><h3>Honeymoon<br>Trip</h3></div></a>
+        </div>
       </div>
     </div>
 
@@ -426,7 +471,10 @@
                     scrollwheel: false,
 
                     // The latitude and longitude to center the map (always required)
-                    center: new google.maps.LatLng(42.368848, -71.103567), // New York
+                    center: new google.maps.LatLng(42.368848, -71.103567),
+
+
+                    // center: new google.maps.LatLng(42.374717, -71.114955),
 
                     // How you would like to style the map.
                     // This is where you would paste any style found on Snazzy Maps.
@@ -443,6 +491,7 @@
                 // Let's also add a marker while we're at it
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(42.368848, -71.103567),
+                    // position: new google.maps.LatLng(42.374717, -71.114955),
                     map: map,
                     title: 'Map'
                 });
@@ -450,6 +499,45 @@
 
 
 
+
+
+google.maps.event.addDomListener(window, 'load', init2)
+
+function init2() {
+  console.log("init2")
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions2 = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 16,
+                    scrollwheel: false,
+
+                    // The latitude and longitude to center the map (always required)
+                    // center: new google.maps.LatLng(42.368848, -71.103567),
+
+
+                    center: new google.maps.LatLng(42.374717, -71.114955),
+
+                    // How you would like to style the map.
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+                };
+
+                // Get the HTML DOM element that will contain your map
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement2 = document.getElementById('map2');
+
+                // Create the Google Map using our element and options defined above
+                var map2 = new google.maps.Map(mapElement2, mapOptions2);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    // position: new google.maps.LatLng(42.368848, -71.103567),
+                    position: new google.maps.LatLng(42.374717, -71.114955),
+                    map: map2,
+                    title: 'Map'
+                });
+            }
 
 
 });
