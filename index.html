@@ -14,14 +14,14 @@
   <style type="text/css">
     #map {
         width: 100%;
-        max-width: 500px;
-        height: 300px;
+        max-width: 350px;
+        height: 200px;
         margin: 20px auto;
     }
 
       #map2 {
         width: 100%;
-        max-width: 300px;
+         max-width: 350px;
         height: 200px;
         margin: 20px auto;
       }
@@ -99,10 +99,7 @@
   padding-top: 20px
 }
 
-.top-rule {
-  border-top: 1px solid #f5f1ef;
-  padding-top: 20px
-}
+
 
 .horz-rule span {
   display: inline-block;
@@ -179,10 +176,23 @@
     display: inline-block;
   }
 
-  #tr .inner.double > div {
+  #tr .inner.double {
     float: left;
     width: 50%;
   }
+
+  #tr .inner.triple {
+    float: left;
+    width: 33%;
+  }
+
+  .inner.triple p {
+    max-width: 300px;
+    margin: auto;
+    width: 100%;
+    height:50px
+  }
+
 
   h1 {
     font-size: 80px;
@@ -230,7 +240,8 @@
     color: rgba(0,0,0,.8);
     font-family: "Lato", sans-serif;
     letter-spacing: .02em;
-    font-weight: 300
+    font-weight: 300;
+    line-height: 1.5em
   }
   #tr > div {
     padding-top:10px;
@@ -254,8 +265,8 @@
     margin: 20px;
     border-radius: 50%;
     cursor: pointer;
-    height: 120px;
-    width: 120px;
+    height: 90px;
+    width: 90px;
     background-size: 200px;
     text-align: center;
   }
@@ -285,9 +296,19 @@
 
   }
 
+    .icon.sun {
+    background: url("sun.svg") top left no-repeat;
+    background-size: 100%
+
+  }
+
   @media screen and (max-width: 480px){
     header li {
       padding:10px 8px 10px 0px;
+    }
+
+    h2 {
+      font-size: 30px
     }
 
     .mobile-gone {
@@ -302,17 +323,21 @@
       padding-left:8px;
     }
 
-    #tr .inner.double > div {
+    #tr .inner.double, #tr .inner.triple {
       max-width: 300px;
       width: 100%;
       float: none;
       margin: 30px auto 0px;
-
     }
 
     #home p {
       padding:0px 50px;
     }
+
+    .inner.triple p {
+      height: auto
+    }
+
 
     p {
       margin-bottom: 0px
@@ -338,8 +363,7 @@
       <ul>
         <li class="home-nav active"><h3><a href="#home">Tina & Rudi</a></h3></li>
         <li class="deets-nav"><h3><a href="#deets">Details</a></h3></li>
-        <li class="potluck-nav"><h3><a href="#potluck">Potluck</a></h3></li>
-        <li class="trip-nav"><h3><a href="#trip">Trip</a></h3></li>
+        <li class="rsvp-nav"><h3><a href="#rsvp">RSVP & Potluck</a></h3></li>
 
       </ul>
     </header>
@@ -362,9 +386,13 @@
   <div id="deets" class="section">
     <div class="horz-rule"><span></span></div>
 
-    <div class="inner">
-      <h2>August 20th, 2016</h2>
-      <p>4pm in the backyard of 276 Harvard Street</p>
+          <h2>August 20th, 2016 at 4pm</h2>
+
+
+    <div class="inner double">
+      <div class="icon sun"></div>
+      <p>The wedding will be in the backyard of 276 Harvard Street</p>
+
 
 
     <div class="map">
@@ -376,14 +404,9 @@
 
 
 
-  <div class="inner">
-
-    <div class="text-box top-rule">
+  <div class="inner double">
       <div class="icon rain"></div>
-      <p>In case of rain, we'll be in Robinson Hall, History Department, Harvard University, 35 Quincy Street</p>
-    </div>
-
-
+      <p>In case of rain, we'll be in Harvard's Robinson Hall, 35 Quincy Street</p>
 
     <div class="map">
       <div id="map2"></div>
@@ -396,29 +419,29 @@
 
 
 
-
-     <div id="potluck" class="section">
+  <div id="rsvp" class="section">
       <div class="horz-rule"><span></span></div>
 
-      <div class="inner ">
-        <div>
+      <div class="inner triple ">
+          <p>Please RSVP here!</p>
+          <a href="http://rudiandtina.zankyou.com/us/wedding-list?_ga=1.122901581.777571684.1455920837" target="_blank"><div class="button"><h3>RSVP</h3></div></a>
+      </div>
+
+
+      <div class="inner triple">
           <p>Instead of a gift, please contribute food or drink to our potluck.</p>
-          <a href="https://docs.google.com/spreadsheets/d/11D45-IpeByhXqk4QzDTO5VJh6R6VgZd1yfoyVW_DVvM/edit#gid=0" target="_blank"><div class="button large-button"><h3>Potluck<br>Signup</h3></div></a>
-        </div>
+          <a href="https://docs.google.com/spreadsheets/d/11D45-IpeByhXqk4QzDTO5VJh6R6VgZd1yfoyVW_DVvM/edit#gid=0" target="_blank"><div class="button"><h3>Potluck</h3></div></a>
       </div>
-    </div>
 
 
-    <div id="trip" class="section">
-      <div class="horz-rule"><span></span></div>
-
-      <div class="inner ">
-        <div>
+      <div class="inner triple">
           <p>If you'd like, you can make a small contribution toward our honeymoon trip!</p>
-          <a href="http://rudiandtina.zankyou.com/us/wedding-list?_ga=1.122901581.777571684.1455920837" target="_blank"><div class="button large-button"><h3>Honeymoon<br>Trip</h3></div></a>
-        </div>
+          <a href="http://rudiandtina.zankyou.com/us/wedding-list?_ga=1.122901581.777571684.1455920837" target="_blank"><div class="button"><h3>Trip</h3></div></a>
       </div>
     </div>
+
+
+
 
 </div>
 
